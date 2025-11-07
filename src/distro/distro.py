@@ -53,7 +53,7 @@ try:
     from typing import TypedDict
 except ImportError:
     # Python 3.7
-    TypedDict = dict
+    TypedDict = dict  # type: ignore[assignment]
 
 __version__ = "1.9.0"
 
@@ -1193,8 +1193,10 @@ class LinuxDistribution:
             if len(kv) != 2:
                 # Ignore lines without colon.
                 continue
-            k, v = kv
-            props.update({k.replace(" ", "_").lower(): v.strip()})
+            k, v = kv[0], kv[1].strip()
+            if v == "n/a":
+                v = ""
+            props.update({k.replace(" ", "_").lower(): v})
         return props
 
     @cached_property

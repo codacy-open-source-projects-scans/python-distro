@@ -695,6 +695,25 @@ class TestLSBRelease(DistroTestCase):
         }
         self._test_outcome(desired_outcome)
 
+    def test_debian13noosrelease_lsb_release(self) -> None:
+        self._setup_for_distro(os.path.join(TESTDISTROS, "lsb", "debian13_noosrelease"))
+
+        self.distro = distro.LinuxDistribution(
+            os_release_file="path-to-non-existing-file",
+            distro_release_file="path-to-non-existing-file",
+        )
+
+        desired_outcome = {
+            "id": "debian",
+            "name": "Debian",
+            "pretty_name": "Debian GNU/Linux trixie/sid",
+            "version": "trixie/sid",
+            "pretty_version": "trixie/sid (trixie)",
+            "best_version": "trixie/sid",
+            "codename": "trixie",
+        }
+        self._test_outcome(desired_outcome)
+
     def test_ubuntu14nomodules_lsb_release(self) -> None:
         self._setup_for_distro(os.path.join(TESTDISTROS, "lsb", "ubuntu14_nomodules"))
 
@@ -1677,9 +1696,9 @@ class TestOverall(DistroTestCase):
             "name": "SLES",
             "pretty_name": "SUSE Linux Enterprise Server 12 SP1",
             "version": "12.1",
-            "pretty_version": "12.1 (n/a)",
+            "pretty_version": "12.1 (s390x)",
             "best_version": "12.1",
-            "codename": "n/a",
+            "codename": "s390x",
             "major_version": "12",
             "minor_version": "1",
         }
@@ -2222,16 +2241,16 @@ class TestOSReleaseParsing:
 
     def test_kv_22_quoted_unicode_wordchar(self) -> None:
         # "wordchar" means it is in the shlex.wordchars variable.
-        props = self._get_props('KEY="wordchar: \u00CA (E accent grave)"\n')
-        assert props.get("key", None) == "wordchar: \u00CA (E accent grave)"
+        props = self._get_props('KEY="wordchar: \u00ca (E accent grave)"\n')
+        assert props.get("key", None) == "wordchar: \u00ca (E accent grave)"
 
     def test_kv_23_quoted_unicode_non_wordchar(self) -> None:
         # "non-wordchar" means it is not in the shlex.wordchars variable.
         props = self._get_props(
-            'KEY="non-wordchar: \u00A1 (inverted exclamation mark)"\n'
+            'KEY="non-wordchar: \u00a1 (inverted exclamation mark)"\n'
         )
         assert (
-            props.get("key", None) == "non-wordchar: \u00A1 (inverted exclamation mark)"
+            props.get("key", None) == "non-wordchar: \u00a1 (inverted exclamation mark)"
         )
 
     def test_kv_24_double_quoted_entire_single_quoted_word(self) -> None:
