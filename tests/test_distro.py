@@ -233,6 +233,18 @@ class TestOSRelease:
         }
         self._test_outcome(desired_outcome)
 
+    def test_debian13_os_release(self) -> None:
+        desired_outcome = {
+            "id": "debian",
+            "name": "Debian GNU/Linux",
+            "pretty_name": "Debian GNU/Linux 13 (trixie)",
+            "version": "13",
+            "pretty_version": "13 (trixie)",
+            "best_version": "13.1",
+            "codename": "trixie",
+        }
+        self._test_outcome(desired_outcome)
+
     def test_debiantesting_os_release(self) -> None:
         desired_outcome = {
             "id": "debian",
@@ -281,6 +293,18 @@ class TestOSRelease:
             "version": "30",
             "pretty_version": "30",
             "best_version": "30",
+            "codename": "",
+        }
+        self._test_outcome(desired_outcome)
+
+    def test_fedora42_os_release(self) -> None:
+        desired_outcome = {
+            "id": "fedora",
+            "name": "Fedora Linux",
+            "pretty_name": "Fedora Linux 42 (Forty Two)",
+            "version": "42",
+            "pretty_version": "42",
+            "best_version": "42",
             "codename": "",
         }
         self._test_outcome(desired_outcome)
@@ -401,6 +425,32 @@ class TestOSRelease:
         }
         self._test_outcome(desired_outcome)
 
+    def test_rhel9_os_release(self) -> None:
+        desired_outcome = {
+            "id": "rhel",
+            "name": "Red Hat Enterprise Linux",
+            "pretty_name": "Red Hat Enterprise Linux 9.6 (Plow)",
+            "version": "9.6",
+            "pretty_version": "9.6 (Plow)",
+            "best_version": "9.6",
+            "like": "fedora",
+            "codename": "Plow",
+        }
+        self._test_outcome(desired_outcome)
+
+    def test_rhel10_os_release(self) -> None:
+        desired_outcome = {
+            "id": "rhel",
+            "name": "Red Hat Enterprise Linux",
+            "pretty_name": "Red Hat Enterprise Linux 10.0 (Coughlan)",
+            "version": "10.0",
+            "pretty_version": "10.0 (Coughlan)",
+            "best_version": "10.0",
+            "like": "centos fedora",
+            "codename": "Coughlan",
+        }
+        self._test_outcome(desired_outcome)
+
     def test_rocky_os_release(self) -> None:
         desired_outcome = {
             "id": "rocky",
@@ -411,6 +461,84 @@ class TestOSRelease:
             "best_version": "8.4",
             "like": "rhel centos fedora",
             "codename": "Green Obsidian",
+        }
+        self._test_outcome(desired_outcome)
+
+    def test_almalinux10_os_release(self) -> None:
+        desired_outcome = {
+            "id": "almalinux",
+            "name": "AlmaLinux",
+            "pretty_name": "AlmaLinux 10.0 (Purple Lion)",
+            "version": "10.0",
+            "pretty_version": "10.0 (Purple Lion)",
+            "best_version": "10.0",
+            "like": "rhel centos fedora",
+            "codename": "Purple Lion",
+        }
+        self._test_outcome(desired_outcome)
+
+    def test_rocky9_os_release(self) -> None:
+        desired_outcome = {
+            "id": "rocky",
+            "name": "Rocky Linux",
+            "pretty_name": "Rocky Linux 9.3 (Blue Onyx)",
+            "version": "9.3",
+            "pretty_version": "9.3 (Blue Onyx)",
+            "best_version": "9.3",
+            "like": "rhel centos fedora",
+            "codename": "Blue Onyx",
+        }
+        self._test_outcome(desired_outcome)
+
+    def test_rocky10_os_release(self) -> None:
+        desired_outcome = {
+            "id": "rocky",
+            "name": "Rocky Linux",
+            "pretty_name": "Rocky Linux 10.0 (Red Quartz)",
+            "version": "10.0",
+            "pretty_version": "10.0 (Red Quartz)",
+            "best_version": "10.0",
+            "like": "rhel centos fedora",
+            "codename": "Red Quartz",
+        }
+        self._test_outcome(desired_outcome)
+
+    def test_centosstream9_os_release(self) -> None:
+        desired_outcome = {
+            "id": "centos",
+            "name": "CentOS Stream",
+            "pretty_name": "CentOS Stream 9",
+            "version": "9",
+            "pretty_version": "9",
+            "best_version": "9",
+            "like": "rhel fedora",
+            "codename": "",
+        }
+        self._test_outcome(desired_outcome)
+
+    def test_centosstream8_os_release(self) -> None:
+        desired_outcome = {
+            "id": "centos",
+            "name": "CentOS Stream",
+            "pretty_name": "CentOS Stream 8",
+            "version": "8",
+            "pretty_version": "8",
+            "best_version": "8",
+            "like": "rhel fedora",
+            "codename": "",
+        }
+        self._test_outcome(desired_outcome)
+
+    def test_centosstream10_os_release(self) -> None:
+        desired_outcome = {
+            "id": "centos",
+            "name": "CentOS Stream",
+            "pretty_name": "CentOS Stream 10",
+            "version": "10",
+            "pretty_version": "10",
+            "best_version": "10",
+            "like": "rhel fedora",
+            "codename": "",
         }
         self._test_outcome(desired_outcome)
 
@@ -462,6 +590,58 @@ class TestOSRelease:
         }
         self._test_outcome(desired_outcome)
 
+    def test_ubuntu24_os_release(self) -> None:
+        desired_outcome = {
+            "id": "ubuntu",
+            "name": "Ubuntu",
+            "pretty_name": "Ubuntu 24.04.3 LTS",
+            "version": "24.04",
+            "pretty_version": "24.04 (noble)",
+            "best_version": "24.04.3",
+            "like": "debian",
+            "codename": "noble",
+        }
+        self._test_outcome(desired_outcome)
+
+    def test_ubuntu2504_os_release(self) -> None:
+        desired_outcome = {
+            "id": "ubuntu",
+            "name": "Ubuntu",
+            "pretty_name": "Ubuntu 25.04",
+            "version": "25.04",
+            "pretty_version": "25.04 (plucky)",
+            "best_version": "25.04",
+            "like": "debian",
+            "codename": "plucky",
+        }
+        self._test_outcome(desired_outcome)
+
+    def test_ubuntu2510_os_release(self) -> None:
+        desired_outcome = {
+            "id": "ubuntu",
+            "name": "Ubuntu",
+            "pretty_name": "Ubuntu 25.10",
+            "version": "25.10",
+            "pretty_version": "25.10 (questing)",
+            "best_version": "25.10",
+            "like": "debian",
+            "codename": "questing",
+        }
+        self._test_outcome(desired_outcome)
+
+    def test_ubuntu2604_os_release(self) -> None:
+        desired_outcome = {
+            "id": "ubuntu",
+            "name": "Ubuntu",
+            "pretty_name": "Ubuntu 26.04 LTS",
+            "version": "26.04",
+            "pretty_version": "26.04 (resolute)",
+            "best_version": "26.04",
+            "like": "debian",
+            "codename": "resolute",
+        }
+        self._test_outcome(desired_outcome)
+
     def test_amazon2016_os_release(self) -> None:
         desired_outcome = {
             "id": "amzn",
@@ -471,6 +651,29 @@ class TestOSRelease:
             "pretty_version": "2016.03",
             "best_version": "2016.03",
             "like": "rhel fedora",
+        }
+        self._test_outcome(desired_outcome)
+
+    def test_amazon2023_os_release(self) -> None:
+        desired_outcome = {
+            "id": "amzn",
+            "name": "Amazon Linux",
+            "pretty_name": "Amazon Linux 2023",
+            "version": "2023",
+            "pretty_version": "2023",
+            "best_version": "2023",
+            "like": "fedora",
+        }
+        self._test_outcome(desired_outcome)
+
+    def test_alpine_os_release(self) -> None:
+        desired_outcome = {
+            "id": "alpine",
+            "name": "Alpine Linux",
+            "pretty_name": "Alpine Linux v3.23",
+            "version": "3.23.2",
+            "pretty_version": "3.23.2",
+            "best_version": "3.23.2",
         }
         self._test_outcome(desired_outcome)
 
@@ -1328,6 +1531,20 @@ class TestOverall(DistroTestCase):
         self._test_outcome(desired_outcome)
         self._test_non_existing_release_file()
 
+    def test_debian13_release(self) -> None:
+        desired_outcome = {
+            "id": "debian",
+            "name": "Debian GNU/Linux",
+            "pretty_name": "Debian GNU/Linux 13 (trixie)",
+            "version": "13",
+            "pretty_version": "13 (trixie)",
+            "best_version": "13.1",
+            "codename": "trixie",
+            "major_version": "13",
+        }
+        self._test_outcome(desired_outcome)
+        self._test_non_existing_release_file()
+
     def test_debiantesting_release(self) -> None:
         desired_outcome = {
             "id": "debian",
@@ -1410,6 +1627,27 @@ class TestOverall(DistroTestCase):
             "name": "Fedora",
             "version_id": "30",
             "codename": "Thirty",
+        }
+        self._test_release_file_info("fedora-release", desired_info)
+
+    def test_fedora42_release(self) -> None:
+        desired_outcome = {
+            "id": "fedora",
+            "name": "Fedora Linux",
+            "pretty_name": "Fedora Linux 42 (Forty Two)",
+            "version": "42",
+            "pretty_version": "42",
+            "best_version": "42",
+            "codename": "",
+            "major_version": "42",
+        }
+        self._test_outcome(desired_outcome)
+
+        desired_info = {
+            "id": "fedora",
+            "name": "Fedora",
+            "version_id": "42",
+            "codename": "Forty Two",
         }
         self._test_release_file_info("fedora-release", desired_info)
 
@@ -1673,6 +1911,73 @@ class TestOverall(DistroTestCase):
         }
         self._test_release_file_info("centos-release", desired_info)
 
+    def test_almalinux10_release(self) -> None:
+        desired_outcome = {
+            "id": "almalinux",
+            "name": "AlmaLinux",
+            "pretty_name": "AlmaLinux 10.0 (Purple Lion)",
+            "version": "10.0",
+            "pretty_version": "10.0 (Purple Lion)",
+            "best_version": "10.0",
+            "like": "rhel centos fedora",
+            "codename": "Purple Lion",
+            "major_version": "10",
+            "minor_version": "0",
+        }
+        self._test_outcome(desired_outcome)
+
+        desired_info = {
+            "id": "almalinux",
+            "name": "AlmaLinux",
+            "version_id": "10.0",
+            "codename": "Purple Lion",
+        }
+        self._test_release_file_info("almalinux-release", desired_info)
+
+    def test_rocky9_release(self) -> None:
+        desired_outcome = {
+            "id": "rocky",
+            "name": "Rocky Linux",
+            "pretty_name": "Rocky Linux 9.3 (Blue Onyx)",
+            "version": "9.3",
+            "pretty_version": "9.3 (Blue Onyx)",
+            "best_version": "9.3",
+            "like": "rhel centos fedora",
+            "codename": "Blue Onyx",
+            "major_version": "9",
+            "minor_version": "3",
+        }
+        self._test_outcome(desired_outcome)
+
+        desired_info = {
+            "id": "centos",
+            "name": "Rocky Linux",
+            "version_id": "9.3",
+            "codename": "Blue Onyx",
+        }
+        self._test_release_file_info("centos-release", desired_info)
+
+    def test_centosstream9_release(self) -> None:
+        desired_outcome = {
+            "id": "centos",
+            "name": "CentOS Stream",
+            "pretty_name": "CentOS Stream 9",
+            "version": "9",
+            "pretty_version": "9",
+            "best_version": "9",
+            "like": "rhel fedora",
+            "codename": "",
+            "major_version": "9",
+        }
+        self._test_outcome(desired_outcome)
+
+        desired_info = {
+            "id": "centos",
+            "name": "CentOS Stream",
+            "version_id": "9",
+        }
+        self._test_release_file_info("centos-release", desired_info)
+
     def test_slackware14_release(self) -> None:
         desired_outcome = {
             "id": "slackware",
@@ -1743,6 +2048,26 @@ class TestOverall(DistroTestCase):
             "like": "debian",
             "codename": "xenial",
             "major_version": "16",
+            "minor_version": "04",
+        }
+        self._test_outcome(desired_outcome)
+
+        # Test the info from the searched distro release file
+        # Does not have one; /etc/debian_version is not considered a distro
+        # release file:
+        self._test_non_existing_release_file()
+
+    def test_ubuntu24_release(self) -> None:
+        desired_outcome = {
+            "id": "ubuntu",
+            "name": "Ubuntu",
+            "pretty_name": "Ubuntu 24.04.3 LTS",
+            "version": "24.04",
+            "pretty_version": "24.04 (noble)",
+            "best_version": "24.04.3",
+            "like": "debian",
+            "codename": "noble",
+            "major_version": "24",
             "minor_version": "04",
         }
         self._test_outcome(desired_outcome)
@@ -1981,6 +2306,30 @@ class TestOverallWithEtcNotReadable(TestOverall):
         super().teardown_method(test_method)
         if os.listdir is _bad_os_listdir:
             os.listdir = self._old_listdir
+
+    def test_almalinux10_release(self) -> None:
+        # When /etc is not listable, centos-release is found before almalinux-release
+        desired_outcome = {
+            "id": "almalinux",
+            "name": "AlmaLinux",
+            "pretty_name": "AlmaLinux 10.0 (Purple Lion)",
+            "version": "10.0",
+            "pretty_version": "10.0 (Purple Lion)",
+            "best_version": "10.0",
+            "like": "rhel centos fedora",
+            "codename": "Purple Lion",
+            "major_version": "10",
+            "minor_version": "0",
+        }
+        self._test_outcome(desired_outcome)
+
+        desired_info = {
+            "id": "centos",
+            "name": "AlmaLinux",
+            "version_id": "10.0",
+            "codename": "Purple Lion",
+        }
+        self._test_release_file_info("centos-release", desired_info)
 
 
 @pytest.mark.skipif(not IS_LINUX, reason="Irrelevant on non-linux")
